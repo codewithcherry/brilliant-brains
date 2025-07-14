@@ -1,5 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Roboto } from 'next/font/google';
+
+const roboto = Roboto({
+  subsets: ['latin'], // you can also add 'latin-ext', 'cyrillic', etc.
+  weight: ['400', '500', '700'], // load only the weights you need
+  display: 'swap', // optional: avoids render-blocking
+  variable: '--font-roboto', // for Tailwind CSS or global usage
+});
+
+import Navbar from "@/Layout/Navbar";
+import Footer from "@/Layout/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,9 +23,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={roboto.variable}>
       <body>
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
