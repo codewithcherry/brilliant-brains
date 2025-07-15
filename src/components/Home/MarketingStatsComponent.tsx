@@ -698,7 +698,7 @@ const MarketingStatsComponent = () => {
       )}
 
       {/* Hero */}
-     <div className="relative z-30 flex flex-col items-center justify-end min-h-screen px-6 pb-24">
+     <div className="relative z-30 flex flex-col items-center justify-end min-h-screen px-6 pb-24 mb-10">
   <h1 className="text-5xl md:text-7xl font-black text-center leading-tight bg-gradient-to-r from-gray-900 via-blue-800 to-purple-900 bg-clip-text text-transparent mb-4">
     Marketing <br />
     <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
