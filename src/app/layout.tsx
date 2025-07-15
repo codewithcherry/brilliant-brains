@@ -11,6 +11,7 @@ const roboto = Roboto({
 
 import Navbar from "@/Layout/Navbar";
 import Footer from "@/Layout/Footer";
+import NewsletterSubscribe from "@/Layout/NewsletterSubscribe";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body>
         <Navbar />
         {children}
+        <NewsletterSubscribe />
         <Footer />
       </body>
     </html>
