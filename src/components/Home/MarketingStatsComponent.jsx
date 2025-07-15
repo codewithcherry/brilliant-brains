@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const MarketingStatsComponent = () => {
   const containerRef = useRef(null);
   const [hoveredStat, setHoveredStat] = useState(null);
-  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
+  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 20 });
 
   const allStats = [
   {
@@ -42,8 +42,8 @@ const MarketingStatsComponent = () => {
     ),
     number: 649,
     label: 'Google Ads Accounts',
-    x: '20%',
-    y: '25%',
+    x: '10%',
+    y: '15%',
     floatDuration: 4,
     color: 'from-blue-500 to-blue-600',
   },
@@ -123,7 +123,7 @@ const MarketingStatsComponent = () => {
     ),
     number: 891,
     label: 'Landing Pages Created',
-    x: '60%',
+    x: '65%',
     y: '30%',
     floatDuration: 6,
     color: 'from-rose-400 to-pink-500',
@@ -284,7 +284,7 @@ const MarketingStatsComponent = () => {
     label: 'Branding Projects',
     x: '10%',
     y: '80%',
-    floatDuration: 6,
+    floatDuration: 7,
     color: 'from-cyan-400 to-sky-500',
   },
   {
@@ -311,8 +311,8 @@ const MarketingStatsComponent = () => {
     ),
     number: 892,
     label: 'Email Campaigns',
-    x: '55%',
-    y: '80%',
+    x: '70%',
+    y: '85%',
     floatDuration: 5,
     color: 'from-indigo-400 to-indigo-600',
   },
@@ -378,7 +378,7 @@ const MarketingStatsComponent = () => {
     number: 721,
     label: 'SEO Audits',
     x: '38%',
-    y: '60%',
+    y: '85%',
     floatDuration: 7,
     color: 'from-lime-400 to-green-500',
   },
@@ -452,7 +452,7 @@ const MarketingStatsComponent = () => {
     ),
     number: 187,
     label: 'Twitter Growth',
-    x: '33%',
+    x: '80%',
     y: '50%',
     floatDuration: 6,
     color: 'from-blue-400 to-cyan-500',
@@ -515,7 +515,7 @@ const MarketingStatsComponent = () => {
     number: 406,
     label: 'UI/UX Projects',
     x: '65%',
-    y: '65%',
+    y: '70%',
     floatDuration: 4,
     color: 'from-teal-400 to-emerald-500',
   },
@@ -556,8 +556,8 @@ const MarketingStatsComponent = () => {
     ),
     number: 509,
     label: 'Clients Served',
-    x: '40%',
-    y: '25%',
+    x: '30%',
+    y: '20%',
     floatDuration: 5,
     color: 'from-fuchsia-500 to-pink-500',
   },
@@ -585,9 +585,9 @@ const MarketingStatsComponent = () => {
     ),
     number: 68,
     label: 'Video Ads Produced',
-    x: '20%',
-    y: '90%',
-    floatDuration: 6,
+    x: '15%',
+    y: '60%',
+    floatDuration: 4,
     color: 'from-violet-400 to-indigo-500',
   },
 ];
@@ -630,7 +630,7 @@ const MarketingStatsComponent = () => {
       />
 
       {/* Floating particles */}
-      <div className="absolute inset-0 z-40">
+<div className="absolute inset-0 z-40">
   {allStats.map((stat, idx) => (
     <motion.div
       key={idx}
@@ -641,9 +641,9 @@ const MarketingStatsComponent = () => {
         transform: 'translate(-50%, -50%)',
       }}
       animate={{
-        x: [0, 20, 0, -20, 0],
-        y: [0, 15, 30, 15, 0],
-      }}
+  x: [0, 30, -20, 15, 0],
+  y: [0, 40, 10, 30, 0]
+}}
       transition={{
         duration: stat.floatDuration || 8,
         repeat: Infinity,
