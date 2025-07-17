@@ -1,12 +1,10 @@
 'use client';
 
-'use client';
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Github, Linkedin, Twitter, Mail, Globe, MapPin, Calendar, Award, ExternalLink, Heart, MessageCircle, Share2 } from 'lucide-react';
+import { Github, Linkedin, Twitter, Mail, Globe, MapPin, Calendar, Award} from 'lucide-react';
 
 interface Social {
   platform: 'github' | 'linkedin' | 'twitter' | 'email' | 'website';
@@ -123,7 +121,7 @@ const TeamCard: React.FC<TeamCardProps> = ({
     >
       <Card 
         ref={cardRef}
-        className="relative overflow-hidden bg-gradient-to-br from-white/95 via-white/98 to-gray-50/95 backdrop-blur-xl border border-white/30 shadow-2xl shadow-indigo-500/5 transition-all duration-500 will-change-transform hover:shadow-indigo-500/20 hover:shadow-3xl"
+        className="relative overflow-hidden bg-gradient-to-br from-white/95 via-white/98 to-gray-50/95 backdrop-blur-xl border border-white/30 shadow-3xl shadow-indigo-500/5 transition-all duration-500 will-change-transform hover:shadow-indigo-500/20 hover:shadow-3xl"
         style={{
           transform: isHovered 
             ? `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03) translateZ(20px)` 
@@ -205,24 +203,10 @@ const TeamCard: React.FC<TeamCardProps> = ({
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/30 via-purple-500/30 to-pink-500/30 rounded-lg blur-sm animate-pulse"></div>
         </div>
 
-        <CardContent className="relative p-8 text-center" style={{ transform: 'translateZ(50px)' }}>
-          {/* Enhanced status indicator */}
-          {/* <div className="absolute top-6 right-6 flex items-center gap-2 group-hover:scale-110 transition-transform duration-300">
-            <div className={`w-3 h-3 rounded-full ${isOnline ? 'bg-green-500' : 'bg-gray-400'} shadow-lg relative`}>
-              {isOnline && (
-                <>
-                  <div className="w-3 h-3 rounded-full bg-green-500 animate-ping absolute"></div>
-                  <div className="w-5 h-5 rounded-full bg-green-500/30 animate-ping absolute -top-1 -left-1" style={{ animationDelay: '0.5s' }}></div>
-                </>
-              )}
-            </div>
-            <span className="text-xs font-medium text-gray-500 group-hover:text-gray-700 transition-colors duration-300">
-              {isOnline ? 'Online' : 'Offline'}
-            </span>
-          </div> */}
+        <CardContent className="relative px-4 text-center" style={{ transform: 'translateZ(50px)' }}>
 
           {/* Enhanced Profile Image */}
-          <div className="relative mb-6 mx-auto w-32 h-32 group-hover:scale-105 transition-transform duration-500">
+          <div className="relative mb-2 mx-auto w-24 h-24 group-hover:scale-105 transition-transform duration-500">
             {/* Multiple rotating rings with staggered animations */}
             <div className="absolute inset-0 rounded-full border-2 border-indigo-300/20 group-hover:border-indigo-400/60 group-hover:rotate-180 transition-all duration-1000"></div>
             <div className="absolute inset-1 rounded-full border border-purple-300/20 group-hover:border-purple-400/60 group-hover:-rotate-180 transition-all duration-1200" style={{ animationDelay: '0.1s' }}></div>
@@ -237,7 +221,7 @@ const TeamCard: React.FC<TeamCardProps> = ({
                 <img 
                   src={image} 
                   alt={name}
-                  className="w-full h-full rounded-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-24 h-24 rounded-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 {/* Enhanced overlay with multiple gradients */}
                 <div className="absolute inset-0 bg-gradient-to-t from-indigo-500/30 via-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
@@ -254,7 +238,7 @@ const TeamCard: React.FC<TeamCardProps> = ({
           </div>
 
           {/* Enhanced Name with text effects */}
-          <h3 className="text-3xl font-bold mb-2 transition-all duration-500 tracking-tight group-hover:scale-105 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-600 group-hover:via-purple-600 group-hover:to-pink-600">
+          <h3 className="text-lg md:text-2xl font-bold mb-2 transition-all duration-500 tracking-tight group-hover:scale-105 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-600 group-hover:via-purple-600 group-hover:to-pink-600">
             {name}
           </h3>
 
@@ -286,13 +270,13 @@ const TeamCard: React.FC<TeamCardProps> = ({
           </div>
 
           {/* Enhanced description */}
-          <p className="text-gray-600 text-sm leading-relaxed mb-6 group-hover:text-gray-800 transition-all duration-300 max-w-sm mx-auto group-hover:scale-105">
+          <p className="text-gray-600 text-sm  leading-snug mb-6 group-hover:text-gray-800 transition-all duration-300 max-w-sm mx-auto group-hover:scale-105">
             {description}
           </p>
 
           {/* Enhanced skills with staggered animations */}
           {skills.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-6 justify-center">
+            <div className="flex flex-wrap gap-2 mb-2 justify-center">
               {skills.map((skill, index) => (
                 <Badge 
                   key={index}
@@ -310,8 +294,8 @@ const TeamCard: React.FC<TeamCardProps> = ({
           )}
 
           {/* Enhanced Social Links */}
-          {socials.length > 0 && (
-            <div className="flex gap-3 justify-center mb-6">
+          {/* {socials.length > 0 && (
+            <div className="flex gap-3 justify-center mb-2">
               {socials.map((social, index) => {
                 const Icon = getSocialIcon(social.platform);
                 return (
@@ -325,10 +309,10 @@ const TeamCard: React.FC<TeamCardProps> = ({
                     >
                       <Icon className="w-5 h-5 text-gray-600 group-hover/social:text-indigo-600 transition-all duration-300 relative z-10 group-hover/social:scale-110" />
                       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/0 to-purple-500/0 group-hover/social:from-indigo-500/20 group-hover/social:to-purple-500/20 transition-all duration-300 rounded-full"></div>
-                    </Button>
+                    </Button> */}
                     
                     {/* Enhanced tooltip */}
-                    {social.followers && (
+                    {/* {social.followers && (
                       <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-3 py-1 rounded-lg opacity-0 group-hover/social:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-lg">
                         {social.followers} followers
                         <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-t-2 border-l-transparent border-r-transparent border-t-gray-900"></div>
@@ -338,40 +322,21 @@ const TeamCard: React.FC<TeamCardProps> = ({
                 );
               })}
             </div>
-          )}
+          )} */}
 
-          {/* Enhanced action buttons */}
-          {/* <div className="flex gap-3 justify-center">
-            <Button 
-              variant="outline" 
-              size="sm" 
-              className="group/btn bg-white/90 backdrop-blur-sm hover:bg-indigo-50 border-gray-200 hover:border-indigo-300 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-indigo-500/25"
-            >
-              <MessageCircle className="w-4 h-4 mr-2 group-hover/btn:text-indigo-600 group-hover/btn:scale-110 transition-all duration-300" />
-              Message
-            </Button>
-            <Button 
-              variant="outline" 
-              size="sm" 
-              className="group/btn bg-white/90 backdrop-blur-sm hover:bg-purple-50 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-purple-500/25"
-            >
-              <Share2 className="w-4 h-4 mr-2 group-hover/btn:text-purple-600 group-hover/btn:scale-110 transition-all duration-300" />
-              Share
-            </Button>
-          </div> */}
         </CardContent>
 
         {/* Enhanced multi-layer glowing effects */}
-        <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-indigo-500/30 group-hover:via-purple-500/30 group-hover:to-pink-500/30 rounded-lg opacity-0 group-hover:opacity-100 blur-sm transition-all duration-700 -z-10"></div>
-        <div className="absolute -inset-2 bg-gradient-to-r from-indigo-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-indigo-500/20 group-hover:via-purple-500/20 group-hover:to-pink-500/20 rounded-lg opacity-0 group-hover:opacity-100 blur-md transition-all duration-700 -z-20"></div>
+        {/* <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-indigo-500/30 group-hover:via-purple-500/30 group-hover:to-pink-500/30 rounded-lg opacity-0 group-hover:opacity-100 blur-sm transition-all duration-700 -z-10"></div>
+        <div className="absolute -inset-2 bg-gradient-to-r from-indigo-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-indigo-500/20 group-hover:via-purple-500/20 group-hover:to-pink-500/20 rounded-lg opacity-0 group-hover:opacity-100 blur-md transition-all duration-700 -z-20"></div> */}
         
         {/* Enhanced corner effects */}
-        <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-indigo-400/0 via-purple-400/0 to-transparent group-hover:from-indigo-400/30 group-hover:via-purple-400/20 rounded-tl-lg opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
-        <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-pink-400/0 via-purple-400/0 to-transparent group-hover:from-pink-400/30 group-hover:via-purple-400/20 rounded-br-lg opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+        {/* <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-indigo-400/0 via-purple-400/0 to-transparent group-hover:from-indigo-400/30 group-hover:via-purple-400/20 rounded-tl-lg opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+        <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-pink-400/0 via-purple-400/0 to-transparent group-hover:from-pink-400/30 group-hover:via-purple-400/20 rounded-br-lg opacity-0 group-hover:opacity-100 transition-all duration-700"></div> */}
         
         {/* Animated scan lines */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform -translate-y-full group-hover:translate-y-full" style={{ height: '3px', animationDuration: '2s' }}></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 transform -translate-x-full group-hover:translate-x-full" style={{ width: '3px', animationDuration: '2.5s', animationDelay: '0.5s' }}></div>
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform -translate-y-full group-hover:translate-y-full" style={{ height: '3px', animationDuration: '2s' }}></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 transform -translate-x-full group-hover:translate-x-full" style={{ width: '3px', animationDuration: '2.5s', animationDelay: '0.5s' }}></div> */}
       </Card>
     </div>
   );
