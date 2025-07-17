@@ -121,9 +121,9 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({
       </div>
 
       {/* FAQ Items */}
-      <div className="space-y-3">
+      <div className="space-y-2">
         {filteredFAQs.length === 0 ? (
-          <Card className="text-center py-6">
+          <Card className="text-center py-2">
             <CardContent>
               <HelpCircle className="h-8 w-8 text-gray-300 mx-auto mb-3" />
               <p className="text-sm text-gray-500">
@@ -182,7 +182,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({
                 {isOpen && (
                   <CardContent className="pt-0 px-4 pb-2">
                     <div className="ml-5 pl-3 border-l border-indigo-100">
-                      <p className="text-xs text-gray-600 leading-relaxed">
+                      <p className="text-sm text-gray-600 leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>
@@ -201,7 +201,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({
       </div>
 
       {/* Stats Footer */}
-      <div className="mt-6 text-center">
+      <div className="mt-2 text-center">
         <p className="text-xs text-gray-400">
           Showing {filteredFAQs.length} of {faqs.length} questions
           {searchTerm && ` matching "${searchTerm}"`}
