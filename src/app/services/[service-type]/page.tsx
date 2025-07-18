@@ -3,6 +3,10 @@ import { notFound } from "next/navigation";
 import { servicesData } from "@/data/services";
 import { Metadata } from "next";
 import SEO from "@/components/Services/SEO";
+import SEM from "@/components/Services/SEM";
+import EmailMarketing from "@/components/Services/EmailMarketing";
+import WebDevelopment from "@/components/Services/WebDevelopment";
+import SocialMediaMarketing from "@/components/Services/SocialMediaMarketing";
 
 export async function generateMetadata({
   params,
@@ -53,7 +57,11 @@ export default async function ServicePage({
 
   return (
     <>
-      <SEO />
+      {/* <SEO /> */}
+      {/* <SEM /> */}
+     {/* { <EmailMarketing />} */}
+     {/* <WebDevelopment /> */}
+     <SocialMediaMarketing />
     </>
   );
 }
