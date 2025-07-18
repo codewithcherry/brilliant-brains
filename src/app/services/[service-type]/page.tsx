@@ -4,14 +4,11 @@ import { servicesData } from "@/data/services";
 import SEOHero from "@/components/Services/SEO/SEOHero";
 import { Metadata } from "next";
 
-interface PageProps {
-  params: { "service-type": string };
-  searchParams: { [key: string]: string | string[] | undefined };
-}
-
 export async function generateMetadata({
   params,
-}: PageProps): Promise<Metadata> {
+}: {
+  params: { "service-type": string };
+}): Promise<Metadata> {
   const service = servicesData.find((s) => s.slug === params["service-type"]);
 
   if (!service) {
@@ -41,20 +38,16 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ServicePage({ params }: PageProps) {
+export default function ServicePage({
+  params,
+}: {
+  params: { "service-type": string };
+}) {
   const service = servicesData.find((s) => s.slug === params["service-type"]);
 
   if (!service) {
     notFound();
   }
-
-  // Format the URL-friendly slug to a display-friendly name
-  const formatServiceName = (slug: string) => {
-    return slug
-      .split("-")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-  };
 
   return (
     <>
