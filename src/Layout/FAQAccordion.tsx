@@ -121,7 +121,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({
       </div>
 
       {/* FAQ Items */}
-      <div className="space-y-2">
+      <div className="grid grid-cols-1 items-center gap-2 ">
         {filteredFAQs.length === 0 ? (
           <Card className="text-center py-2">
             <CardContent>
@@ -143,7 +143,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({
                 } ${faq.featured ? 'ring-1 ring-indigo-300' : ''}`}
               >
                 <CardHeader
-                  className={`p-2 cursor-pointer transition-colors ${isOpen ? 'pb-2' : ''}`}
+                  className={`px-2 cursor-pointer transition-colors ${isOpen ? 'pb-2' : ''}`}
                   onClick={() => toggleItem(faq.id)}
                 >
                   <div className="flex items-center justify-between">
