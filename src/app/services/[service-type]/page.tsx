@@ -1,8 +1,8 @@
 // app/services/[service-type]/page.tsx
 import { notFound } from "next/navigation";
 import { servicesData } from "@/data/services";
-import SEOHero from "@/components/Services/SEO/SEOHero";
 import { Metadata } from "next";
+import SEO from "@/components/Services/SEO";
 
 export async function generateMetadata({
   params,
@@ -53,7 +53,7 @@ export default async function ServicePage({
 
   return (
     <>
-      <SEOHero />
+      <SEO />
     </>
   );
 }
