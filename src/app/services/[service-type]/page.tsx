@@ -2,12 +2,16 @@
 import { notFound } from "next/navigation";
 import { servicesData } from "@/data/services";
 import SEOHero from "@/components/Services/SEO/SEOHero";
+import { Metadata } from "next";
+
+interface PageProps {
+  params: { "service-type": string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
 
 export async function generateMetadata({
   params,
-}: {
-  params: { "service-type": string };
-}) {
+}: PageProps): Promise<Metadata> {
   const service = servicesData.find((s) => s.slug === params["service-type"]);
 
   if (!service) {
@@ -37,11 +41,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ServicePage({
-  params,
-}: {
-  params: { "service-type": string };
-}) {
+export default function ServicePage({ params }: PageProps) {
   const service = servicesData.find((s) => s.slug === params["service-type"]);
 
   if (!service) {
@@ -57,42 +57,8 @@ export default function ServicePage({
   };
 
   return (
-    // <main className="w-full max-w-7xl mx-auto px-2 sm:px-2 lg:px-4 py-6">
-    //   <section className="max-w-5xl mx-auto space-y-2">
-    //     {/* Breadcrumb */}
-    //     <nav className="sticky top-0 z-10 bg-white/80 backdrop-blur-sm py-3 mb-8 text-sm text-indigo-500">
-    //       <ol className="flex flex-wrap gap-x-2 gap-y-1 items-center">
-    //         <li>
-    //           <a
-    //             href="/"
-    //             className="hover:text-indigo-700 transition-colors font-medium"
-    //           >
-    //             Home
-    //           </a>
-    //         </li>
-    //         <li className="text-indigo-300">/</li>
-    //         <li>
-    //           <a
-    //             href="/services"
-    //             className="hover:text-indigo-700 transition-colors font-medium"
-    //           >
-    //             Services
-    //           </a>
-    //         </li>
-    //         <li className="text-indigo-300">/</li>
-    //         <li className="font-semibold text-indigo-800">
-    //           {formatServiceName(service.slug)}
-    //         </li>
-    //       </ol>
-    //     </nav>
-
-    //     {/* Header */}
-            
-    //     {/* Features Section */}
-    //   </section>
-    // </main>
     <>
-    <SEOHero />
+      <SEOHero />
     </>
   );
 }
