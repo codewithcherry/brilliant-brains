@@ -51,17 +51,37 @@ export default async function ServicePage({
   const { "service-type": serviceType } = await params;
   const service = servicesData.find((s) => s.slug === serviceType);
 
+  console.log(service);
+
   if (!service) {
     notFound();
   }
 
+  if(service.slug=="search-engine-optimization"){
+    return <SEO />
+  }
+
+  if(service.slug=="search-engine-marketing"){
+    return <SEM />
+  }
+
+  if(service.slug=="email-marketing"){
+    return <EmailMarketing />
+  }
+
+  if(service.slug=="website-development"){
+    return <WebDevelopment />
+  }
+
+   if(service.slug=="social-media-marketing"){
+    return <SocialMediaMarketing />
+  }
+
+
+
   return (
-    <>
-      {/* <SEO /> */}
-      {/* <SEM /> */}
-     {/* { <EmailMarketing />} */}
-     {/* <WebDevelopment /> */}
-     <SocialMediaMarketing />
-    </>
+    <div className="w-full mx-auto my-auto min-h-screen">
+      <h1 className="text-3xl text-center animate-pulse">Working on it</h1>
+    </div>
   );
 }
