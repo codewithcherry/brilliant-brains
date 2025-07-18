@@ -7,9 +7,10 @@ import { Metadata } from "next";
 export async function generateMetadata({
   params,
 }: {
-  params: { "service-type": string };
+  params: Promise<{ "service-type": string }>;
 }): Promise<Metadata> {
-  const service = servicesData.find((s) => s.slug === params["service-type"]);
+  const { "service-type": serviceType } = await params;
+  const service = servicesData.find((s) => s.slug === serviceType);
 
   if (!service) {
     return {
@@ -38,12 +39,13 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ServicePage({
+export default async function ServicePage({
   params,
 }: {
-  params: { "service-type": string };
+  params: Promise<{ "service-type": string }>;
 }) {
-  const service = servicesData.find((s) => s.slug === params["service-type"]);
+  const { "service-type": serviceType } = await params;
+  const service = servicesData.find((s) => s.slug === serviceType);
 
   if (!service) {
     notFound();
